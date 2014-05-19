@@ -1,0 +1,72 @@
+<h1> Welcome to Forklol! </h1>
+  <body>
+  <div class="container">
+    <div class ="row">
+      <label> Enter Player
+        <input id="submit_box"> </input>
+      </label>
+    </div>
+
+    <div class="row">
+      <div class='col-xs-4'>
+          <table class='table table-bordered'>
+            <tr><th>Season(s)</th><th>Player</th></tr>
+             <tr><td >1969-70</td><td id="0"></td></tr>
+             <tr><td >1970-71</td><td id="1"></td></tr>
+             <tr><td >1982-83</td><td id="2"></td></tr>
+             <tr><td >1983-84, 1985-86</td><td id="3"></td></tr>
+             <tr><td >1986-87</td><td id="4"></td></tr>
+           </table >
+      </div>
+      <div class='col-xs-4'>
+          <table class="table table-bordered">
+            <tr><th>Season(s)</th><th>Player</th></tr>
+            <tr><td >1991-92, 1995-96, 1997-98</td><td id="5"></td></tr>
+            <tr><td >1993-94</td><td id='6'></td></tr>
+            <tr><td >1999-2000</td><td id="7"></td></tr>
+            <tr><td >2002-2003</td><td id="8"></td></tr>
+            <tr><td >2011-2012, 2012-2013</td><td id="9"></td></tr>
+          </table>
+      </div>
+     </div>
+  </div>
+
+  </body>
+
+<script>
+  var answers = ["Willis Reed", "Lew Alcindor", "Moses Malone", "Larry Bird", "Magic Johnson",
+                "Michael Jordan", "Hakeem Olajuwon", "Shaquille O'Neal", "Tim Duncan", "Lebron James"]
+
+  $(function() {
+      var $selector = $('#submit_box');
+
+      var numComplete = 0;
+
+      // Prevent double-binding
+      // (only a potential issue if script is loaded through AJAX)
+      $(document.body).off('keyup', $selector);
+
+      var checkAnswer = function(response){
+        if (answers.indexOf(response) >= 0){
+            var input_id = answers.indexOf(response).toString();
+            var $element = $('#' + input_id);
+            $element.append(response);
+            $('#submit_box').val('');
+            numComplete++;
+
+            if (numComplete === answers.length){
+                alert("Congrats!");
+            }
+        }
+      }
+
+      // Bind to keyup events on the $selector.
+      $(document.body).on('keyup', $selector, function(event) {
+          if(event.keyCode == 13) { // 13 = Enter Key
+              checkAnswer($(event.target).val());
+          }
+      });
+  });
+
+</script>
+
