@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="931036913">
+    <data-source source="LOCAL" name="Rails Forklol: development" uuid="589dd0a4-3afd-41aa-a3a1-618f3bf09c80">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:Forklol_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Forklol: test" uuid="efff380b-f61c-4adb-be25-c2058529806f">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:Forklol_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Forklol: production" uuid="819aabf8-890f-48c7-9ee6-6aa76e98a009">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:Forklol_production</jdbc-url>
+      <user-name>Forklol</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfecdfe5dff8dfe1dfe6dfe5dfe6dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
