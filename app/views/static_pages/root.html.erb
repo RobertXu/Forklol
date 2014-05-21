@@ -5,6 +5,10 @@
       <label> Enter Player
         <input id="submit_box"> </input>
       </label>
+
+      <button type='button' id="play_button" class="btn-primary btn">Play</button>
+
+      <div id="timer_display" style="font-size: 20px" class = "label label-info">5:00</div>
     </div>
 
     <div class="row">
@@ -34,38 +38,78 @@
   </body>
 
 <script>
-  var answers = ["Willis Reed", "Lew Alcindor", "Moses Malone", "Larry Bird", "Magic Johnson",
-                "Michael Jordan", "Hakeem Olajuwon", "Shaquille O'Neal", "Tim Duncan", "Lebron James"]
-
   $(function() {
-      var $selector = $('#submit_box');
-
-      var numComplete = 0;
-
-      // Prevent double-binding
-      // (only a potential issue if script is loaded through AJAX)
-      $(document.body).off('keyup', $selector);
+      var $input = $('#submit_box');
 
       var checkAnswer = function(response){
         if (answers.indexOf(response) >= 0){
             var input_id = answers.indexOf(response).toString();
             var $element = $('#' + input_id);
             $element.append(response);
+            $element.addClass('success');
             $('#submit_box').val('');
-            numComplete++;
+            filled_in_answers.push(response);
 
-            if (numComplete === answers.length){
+            if (filled_in_answers.length === answers.length){
                 alert("Congrats!");
             }
         }
-      }
+      };
+
+      var answers = ["Willis Reed", "Lew Alcindor", "Moses Malone", "Larry Bird", "Magic Johnson",
+          "Michael Jordan", "Hakeem Olajuwon", "Shaquille O'Neal", "Tim Duncan", "Lebron James"];
+
+      var filled_in_answers = [];
 
       // Bind to keyup events on the $selector.
-      $(document.body).on('keyup', $selector, function(event) {
-          if(event.keyCode == 13) { // 13 = Enter Key
-              checkAnswer($(event.target).val());
-          }
+      $($input).on('keyup',function(event) {
+          checkAnswer($(event.target).val());
       });
+
+    var $play_button = $('#play_button');
+
+    var decrementTime = function(oldTime){
+      var min = parseInt(oldTime[0]);
+      var sec = parseInt(oldTime[1]);
+
+      if(sec === 0){
+          min -= 1;
+          sec = 59;
+      } else{
+        sec -= 1;
+      }
+
+      return [min, sec];
+    };
+
+    var addZero = function(sec){
+          if (sec.length === 1){
+              sec = "0" + sec;
+          }
+          return sec;
+      };
+
+    $($play_button).on('click', function(){
+        var $timer = $('#timer_display');
+        var $input_that = $input;
+        $input.focus();
+        var interval = setInterval(function(){
+            var oldTime = $timer.html();
+            var newTimes = decrementTime(oldTime.split(":"));
+            var min = newTimes[0].toString();
+            var sec = newTimes[1].toString();
+
+            sec = addZero(sec);
+
+            /* Also need to clearInterval if done with quiz*/
+            if (min === "0" && sec === "0"){
+                clearInterval(interval);
+                $input_that.prop('disabled', true);
+            }
+
+            $timer.html(min + ":" + sec);
+        },1000)
+    });
   });
 
 </script>
