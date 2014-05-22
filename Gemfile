@@ -39,7 +39,6 @@ end
 
 gem 'annotate'
 
-
 gem 'jquery-ui-rails'
 gem 'backbone-on-rails'
 
