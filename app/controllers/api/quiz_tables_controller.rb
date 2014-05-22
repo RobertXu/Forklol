@@ -1,5 +1,5 @@
 model Api
-  class QuizTablesController < ApiController
+  class QuizTablesController < ApplicationController
 
     def index
       @quiz = Quiz.find(params[:quiz_id]).quiz_tables

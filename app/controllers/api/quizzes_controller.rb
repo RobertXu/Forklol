@@ -1,5 +1,5 @@
 module APi
-  class QuizzesController < ApiController
+  class QuizzesController < ApplicationController
 
     def index
       @quizzes = Quiz.includes(:questions, :quiz_tables).all

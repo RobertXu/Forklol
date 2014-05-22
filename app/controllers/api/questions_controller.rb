@@ -1,5 +1,5 @@
 module Api
-  class Questionscontroller < ApiController
+  class Questionscontroller < ApplicationController
 
     def index
       @questions = QuizTable.find(params[:quiz_id]).questions
