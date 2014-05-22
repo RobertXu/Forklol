@@ -5,18 +5,20 @@ Forklol.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'quizzesIndex'
+    'index': 'quizzesIndex'
   },
 
   quizzesIndex: function(){
     var view = new Forklol.Views.QuizzesIndex({collection: Forklol.quizzes});
+
+    this._swapView(view);
   },
 
   _swapView: function(view){
     if (this._currentView){
       this._currentView.remove();
     }
-    this._currentView.remove();
+
     this.$rootEl.html(view.render().$el);
   }
 });

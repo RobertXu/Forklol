@@ -6,6 +6,8 @@ Forklol.Views.QuizzesIndex = Backbone.View.extend({
   template: JST['quizzes/index'],
 
   render: function () {
+    debugger
+
     var content = this.template({
       quizzes: this.collection
     });
