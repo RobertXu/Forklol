@@ -5,9 +5,6 @@
 
 - Clicking on user's name in nav bar should lead to profile
     have dropdown for user name as well?
-- Format JSON response for api
-
-
 
 
 Future
@@ -15,11 +12,12 @@ Future
 - Allow for custom quiz colors
 - form for making quizzes
 - Add tagging for quizzes
-
+- Add pause button
 
 Ongoing
 *- Make sure routes are properly updated
 *
 What controller does Devise go to?
-Do you need controllers for quiz tables and questions?
-Well, you need the show method so that the jbuilder works
+#Listen to sync or add and remove as well?
+
+* Will the parse method fire for quiz_tables and questions?

@@ -4,7 +4,11 @@ window.Forklol = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+     console.log('Hello from Backbone!');
+     Forklol.router = new Forklol.Router({
+       $rootEl: $('#content')
+     });
+     Backbone.history.start();
   }
 };
 
