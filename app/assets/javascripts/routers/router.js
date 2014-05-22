@@ -9,7 +9,7 @@ Forklol.Router = Backbone.Router.extend({
   },
 
   quizzesIndex: function(){
-    var view =
+    var view = new Forklol.Views.QuizzesIndex({collection: Forklol.quizzes});
   },
 
   _swapView: function(view){
