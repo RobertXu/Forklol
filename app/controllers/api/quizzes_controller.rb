@@ -1,4 +1,4 @@
-module APi
+module Api
   class QuizzesController < ApplicationController
 
     def index

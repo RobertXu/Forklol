@@ -1,4 +1,4 @@
-model Api
+module Api
   class QuizTablesController < ApplicationController
 
     def index
@@ -8,7 +8,7 @@ model Api
 
     def show
       @quiz_table = QuizTable.find(params[:id]);
-      render partial :"api/quiz_tables/quiz_table", locale: {quiz_talbe: @quiz_table}
+      render partial :"api/quiz_tables/quiz_table", locale: {quiz_table: @quiz_table}
     end
 
     private
