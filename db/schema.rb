@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518044335) do
+ActiveRecord::Schema.define(version: 20140522000602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: true do |t|
+    t.integer  "position",   null: false
+    t.integer  "table_id",   null: false
+    t.text     "hint"
+    t.text     "answer",     null: false
+    t.text     "triggers",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quiz_tables", force: true do |t|
+    t.integer  "quiz_id",       null: false
+    t.string   "hint_header",   null: false
+    t.string   "answer_header", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quizzes", force: true do |t|
+    t.integer  "author_id",   null: false
+    t.text     "description", null: false
+    t.string   "time_limit",  null: false
+    t.string   "title",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

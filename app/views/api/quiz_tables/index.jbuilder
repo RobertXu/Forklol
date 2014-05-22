@@ -1,0 +1,1 @@
+json.array! @quiz_tables, partial: 'api/quiz_tables/quiz_table', as: :quiz_table
