@@ -33,6 +33,9 @@ gem 'rails_12factor', group: :production
 # Authentication
 gem 'devise'
 
+# Composite Views and Cleaning up Zombie views
+gem 'backbone-support'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

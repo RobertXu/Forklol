@@ -9,7 +9,7 @@ Forklol.Models.QuizTable = Backbone.Model.extend({
 
   questions: function(){
     if (!this._questions){
-      this._questions = new Forklol.Collections.Questions({quiz_table: this});
+      this._questions = new Forklol.Collections.Questions([], {quiz_table: this});
     }
 
     return this._questions;

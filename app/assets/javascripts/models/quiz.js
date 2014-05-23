@@ -1,5 +1,6 @@
 Forklol.Models.Quiz = Backbone.Model.extend({
   parse: function (resp) {
+
     if(resp.quiz_tables){
       this.quiz_tables().set(resp.quiz_tables, {parse: true});
       delete resp.quiz_tables;

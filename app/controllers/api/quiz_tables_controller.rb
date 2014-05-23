@@ -2,13 +2,13 @@ module Api
   class QuizTablesController < ApplicationController
 
     def index
-      @quiz = Quiz.find(params[:quiz_id]).quiz_tables
+      @quiz_tables = Quiz.find(params[:quiz_id]).quiz_tables
       render :index
     end
 
     def show
       @quiz_table = QuizTable.find(params[:id]);
-      render partial :"api/quiz_tables/quiz_table", locale: {quiz_table: @quiz_table}
+      render partial: "api/quiz_tables/quiz_table", locals: {quiz_table: @quiz_table}
     end
 
     private

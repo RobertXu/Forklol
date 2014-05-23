@@ -1,24 +1,43 @@
-Forklol.Router = Backbone.Router.extend({
+Forklol.Router = Support.SwappingRouter.extend({
 
   initialize: function(options){
-    this.$rootEl = options.$rootEl;
+    this.$el = options.$rootEl;
   },
 
   routes: {
-    'index': 'quizzesIndex'
+    'index': 'quizzesIndex',
+    'quizzes/:id': 'quizShow'
   },
 
   quizzesIndex: function(){
     var view = new Forklol.Views.QuizzesIndex({collection: Forklol.quizzes});
 
-    this._swapView(view);
+    Forklol.quizzes.fetch();
+    this.swap(view);
   },
 
-  _swapView: function(view){
-    if (this._currentView){
-      this._currentView.remove();
+  quizShow: function(id){
+    var quiz = Forklol.quizzes.getOrFetch(id);
+
+    var view = new Forklol.Views.QuizShow({
+      model: quiz
+    });
+
+    this.swap(view);
+  },
+
+  swap: function(newView) {
+    if (this.currentView && this.currentView.leave) {
+      this.currentView.leave();
     }
 
-    this.$rootEl.html(view.render().$el);
+    this.currentView = newView;
+    this.$el.html(this.currentView.render().el);
+
+    if (this.currentView && this.currentView.swapped) {
+      this.currentView.swapped();
+    }
   }
 });
+
+

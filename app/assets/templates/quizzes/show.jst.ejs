@@ -1,0 +1,152 @@
+
+  <body>
+  <div class="container">
+
+    <div class ="row">
+      <label> Type Here
+        <input disabled id="submit_box"> </input>
+      </label>
+
+      <button type='button' id="play_button" class="btn-primary btn">Start</button>
+
+      <div id="timer_display" style="font-size: 20px; background: orange" class="label label-info"><%= quiz.get('time_limit') %></div>
+    </div>
+
+    <div class="row">
+
+      <div class="Hero-unit col-xs-8">
+        <h3> <%= quiz.get('description') %></h3>
+      </div>
+
+    </div>
+
+    <div class="row-fluid" style="margin:5px">
+        <div id="progress-text" style="height:50px; font-size: 30px; background: orange" class = "label col-xs-2">0/10</div>
+
+      <div class="progress" style="width: 400px; height: 50px; background:red">
+        <div id="progress-bar" class="bar" style="height:100%; width:0%; background:yellow">
+        </div>
+      </div>
+
+    </div>
+
+
+  <div class="row" id="quiz_tables_go_here" style="margin:10px;">
+
+  </div>
+
+  </body>
+
+<script>
+  $(function() {
+      var $input = $('#submit_box');
+
+      var updateProgress = function(){
+        $progress = $("#progress-bar");
+
+        var fraction = filled_in_answers.length/answers.length
+
+        $('#progress-text').html(filled_in_answers.length + '/' + answers.length)
+
+        var percentage = Math.floor(fraction*100);
+
+        $progress.width(percentage+'%');
+      }
+
+      var checkAnswer = function(response){
+        if (answers.indexOf(response) >= 0){
+            var input_id = answers.indexOf(response).toString();
+            var $element = $('#' + input_id);
+            $element.append(response);
+            $element.addClass('success');
+            $('#submit_box').val('');
+            filled_in_answers.push(response);
+
+            updateProgress();
+
+            if (filled_in_answers.length === answers.length){
+                alert("Congrats!");
+            }
+        }
+      };
+
+      var answers = ["Willis Reed", "Lew Alcindor", "Moses Malone", "Larry Bird", "Magic Johnson",
+          "Michael Jordan", "Hakeem Olajuwon", "Shaquille O'Neal", "Tim Duncan", "Lebron James"];
+
+      var filled_in_answers = [];
+
+      // Bind to keyup events on the $selector.
+      $($input).on('keyup',function(event) {
+          checkAnswer($(event.target).val());
+      });
+
+    var $play_button = $('#play_button');
+
+    var decrementTime = function(oldTime){
+      var min = parseInt(oldTime[0]);
+      var sec = parseInt(oldTime[1]);
+      if (oldTime[0] === ""){
+        min = 0;
+      }
+
+      if(sec === 0){
+          min -= 1;
+          sec = 59;
+      } else{
+        sec -= 1;
+      }
+
+      return [min, sec];
+    };
+
+    var displayMissed = function(){
+      //eventually will just loop through all question model objects
+      $('.answer-field').each(function(){
+        var $el = $(this);
+
+        if ($el.html() === ""){
+          var id = parseInt($el.attr('id'));
+          $el.html(answers[id]);
+          $el.addClass('warning');
+        }
+      })
+
+    }
+
+    var addZero = function(sec){
+          if (sec.length === 1){
+              sec = "0" + sec;
+          }
+          return sec;
+      };
+
+    $($play_button).on('click', function(){
+      $input.prop('disabled', false);
+
+        var $timer = $('#timer_display');
+        var $input_that = $input;
+        $input.focus();
+        var interval = setInterval(function(){
+            var oldTime = $timer.html();
+            var newTimes = decrementTime(oldTime.split(":"));
+            var min = newTimes[0].toString();
+            var sec = newTimes[1].toString();
+
+            sec = addZero(sec);
+
+            $timer.html(min + ":" + sec);
+
+            /* Also need to clearInterval if done with quiz*/
+            if (min === "0" && sec === "00"){
+                clearInterval(interval);
+                $input_that.prop('disabled', true);
+                alert("Time is up");
+                displayMissed();
+                $('#play_button').prop('disabled', true)
+            }
+
+        },1000)
+    });
+  });
+
+</script>
