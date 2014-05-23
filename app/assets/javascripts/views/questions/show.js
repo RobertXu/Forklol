@@ -3,6 +3,8 @@ Forklol.Views.QuestionShow = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  tagName: 'tr',
+
   template: JST['questions/show'],
 
   render: function(){

@@ -6,10 +6,10 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
   template: JST['quizzes/show'],
 
   grabQuestions: function(tableArr){
-    var questions = [];
+    var questions = new Forklol.Collections.Questions();
 
     tableArr.each(function(quiz_table){
-      questions = questions.concat(quiz_table.questions());
+      questions.add(quiz_table.questions().models);
     })
 
     return questions;
@@ -36,10 +36,11 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
   },
 
   render: function(){
+    var questions = this.grabQuestions(this.model.quiz_tables());
 
     var content = this.template({
       quiz: this.model,
-      questions: this.grabQuestions(this.model.quiz_tables())
+      numQuestions: questions
     });
 
     this.$el.html(content);
@@ -53,6 +54,7 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
           });
           this.renderChildInto(childView, tableDivs[i]);
         }
+        Forklol.GameLogic.RowUI.initialize(this, questions);
     }
 
     return this;

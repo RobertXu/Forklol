@@ -3,6 +3,7 @@ window.Forklol = {
   Collections: {},
   Views: {},
   Routers: {},
+  GameLogic: {},
   initialize: function() {
      console.log('Hello from Backbone!');
      Forklol.router = new Forklol.Router({
@@ -15,3 +16,4 @@ window.Forklol = {
 $(document).ready(function(){
   Forklol.initialize();
 });
+

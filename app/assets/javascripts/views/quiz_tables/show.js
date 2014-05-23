@@ -3,7 +3,15 @@ Forklol.Views.QuizTableShow = Support.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  tagName: 'table',
+
+  className: 'table table-bordered table-striped',
+
   template: JST['quiz_tables/show'],
+
+  initialize: function(){
+     this.id = this.model.id.toString();
+  },
 
   render: function(){
     var content = this.template({

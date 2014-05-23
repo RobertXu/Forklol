@@ -16,7 +16,7 @@ Forklol.Views.QuizzesIndex = Backbone.View.extend({
 
     $titles = this.$('#quiz_titles_go_here');
     this.collection.each(function(quiz){
-      var link_text = "<a href='" + quiz.url() + "'>" + quiz.get('title')  +"</a>"
+      var link_text = "<a href='#quizzes/" + quiz.id + "'>" + quiz.get('title')  +"</a>"
       $titles.append($(link_text));
     })
 
