@@ -15,7 +15,7 @@ Forklol.Views.QuizQuestionForm  = Backbone.View.extend({
    		 i--;
    		 }
    	 });
-  }
+  },
 
   events: {
     'click .input-area': 'updateModel'
