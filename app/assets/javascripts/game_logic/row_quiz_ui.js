@@ -95,7 +95,7 @@ Forklol.GameLogic.RowUI = {
   },
 
   checkAnswer : function(response){
-    var question = this.findQuestion(response)
+     var question = this.findQuestion(response.trim());
 
     while (question){
         var $element = this.view.$('#' + question.id);

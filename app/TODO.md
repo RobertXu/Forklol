@@ -14,24 +14,23 @@ Future
 - Add tagging for quizzes
 - Add pause button
 - Fade in and out by overwriting swap view method
-- Allow response to correspond to more than one trigger
-- Allow for lower case names
+- Allow for lower case names- Names should not be lower case in all cases. For instance, McConnell, the capital C should be important.
+-Add form validation
 
 
 Ongoing
 What controller does Devise go to?
 #Listen to sync or add and remove as well?
 
-* Will the parse method fire for quiz_tables and questions?
-  si senor
-
 #Better way to build divs than through a string?
 
-*QuizShow.js: Render child into: Should it be view.$el? Keep an eye out for this
-  Does not look like it
-
-Make separate ID for questions to reflect position relative to quiz?
-
-Clip off leading and trailing spaces from user input
 
 
+#Quiz Builder
+
+1) Input Type: Typing Style, Click Style <<- To be added
+2) Answer Type: Text, Image
+3) Time Limit, title
+4) answer_header, hint_header
+  Question 1) hint => answer
+5) Preview

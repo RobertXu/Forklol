@@ -3,6 +3,8 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  className: 'container',
+
   template: JST['quizzes/show'],
 
   grabQuestions: function(tableArr){
