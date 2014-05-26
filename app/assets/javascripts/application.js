@@ -11,7 +11,21 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require bootstrap
+//= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require backbone-support
+//= require forklol
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+//= require_tree .
+
+// Rails CSRF Protection
+$(document).ajaxSend(function (e, xhr, options) {
+    var token = $("meta[name='csrf-token']").attr("content");
+    xhr.setRequestHeader("X-CSRF-Token", token);
+});
