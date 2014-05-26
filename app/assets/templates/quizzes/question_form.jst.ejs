@@ -1,6 +1,11 @@
 <div class="container">
     <div class="row clearfix">
-		<div class="col-xs-12 column">
+        <div class='col-xs-1'>
+          <button type="button" class="btn btn-primary btn-lg btn-prev" style="margin:30px">
+            Prev
+          </button>
+        </div>
+		<div class="col-xs-8 col-xs-offset-1">
 			<table class="table table-bordered table-hover" id="tab_logic">
 				<thead>
 					<tr >
@@ -8,13 +13,13 @@
 							#
 						</th>
 						<th class="text-center">
-							Name
+							Hint
 						</th>
 						<th class="text-center">
-							Mail
+							Answer
 						</th>
 						<th class="text-center">
-							Mobile
+							Alternate Answers
 						</th>
 					</tr>
 				</thead>
@@ -24,19 +29,24 @@
 						1
 						</td>
 						<td>
-						<input type="text" name='name0'  placeholder='Name' class="form-control"/>
+						<input type="text" name='hint'  placeholder='Hint' class="form-control"/>
 						</td>
 						<td>
-						<input type="text" name='mail0' placeholder='Mail' class="form-control"/>
+						<input type="text" name='answer' placeholder='Answer' class="form-control"/>
 						</td>
 						<td>
-						<input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
+						<input type="text" name='triggers' placeholder='Alternate Answers' class="form-control"/>
 						</td>
 					</tr>
                     <tr id='addr1'></tr>
 				</tbody>
 			</table>
 		</div>
+         <div class='col-xs-1'>
+           <button type="button" class="btn btn-primary btn-lg btn-submit" style="margin:30px">
+             Submit
+           </button>
+         </div>
 	</div>
 	<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
 </div>

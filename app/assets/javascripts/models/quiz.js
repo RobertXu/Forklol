@@ -1,4 +1,7 @@
 Forklol.Models.Quiz = Backbone.Model.extend({
+  url: 'api/quizzes',
+  paramRoot: 'quiz',
+
   parse: function (resp) {
 
     if(resp.quiz_tables){

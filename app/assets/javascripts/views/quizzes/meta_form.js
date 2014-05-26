@@ -5,10 +5,11 @@ Forklol.Views.QuizMetaForm = Backbone.View.extend({
 
   events: {
     'keydown #quiz-title': 'updateTitle',
-    'click .btn-next': 'updateTimeLimit'
+    'keydown #quiz-description': 'updateDescription',
+    'click .btn-next': 'updateTimeAndTable'
   },
 
-  updateTimeLimit: function(){
+  updateTimeAndTable: function(){
     var minutes = this.$('#quiz-minutes').val();
     var seconds = this.$('#quiz-seconds').val();
 
@@ -17,11 +18,18 @@ Forklol.Views.QuizMetaForm = Backbone.View.extend({
     }
 
     this.model.set({'time_limit': minutes + ':' + seconds });
-    console.log(this.model.get('time_limit'));
+      
+      
+    this.model.quiz_table = new Forklol.Models.QuizTable({'answer_header': this.$('#answer-header').val(), 
+                                                    'hint_header': this.$('#hint-header').val()});
   },
 
   updateTitle: function(event){
     this.model.set({'title': $(event.currentTarget).val()});
+  },
+    
+   updateDescription: function(event){
+    this.model.set({'description': $(event.currentTarget).val()});
   },
 
   render: function(){

@@ -3,6 +3,8 @@
 
 5) Build through association
 
+6) Add hover tooltips for quiz question builder
+
 - Clicking on user's name in nav bar should lead to profile
     have dropdown for user name as well?
 
@@ -15,13 +17,11 @@ Future
 - Add pause button
 - Fade in and out by overwriting swap view method
 - Allow for lower case names- Names should not be lower case in all cases. For instance, McConnell, the capital C should be important.
--Add form validation
+-Add form validation (make all fields required)
+-Make time selectable from a dropdown
 
 
 Ongoing
-What controller does Devise go to?
-#Listen to sync or add and remove as well?
-
 #Better way to build divs than through a string?
 
 

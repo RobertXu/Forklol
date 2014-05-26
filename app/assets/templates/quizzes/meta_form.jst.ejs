@@ -13,11 +13,9 @@
             Prev
           </button>
         </div>
-         <div class="col-xs-4 col-xs-offset-1">
-           <div class="form-group">
+         <div class="col-xs-4 col-xs-offset-1 form-group">
              <label> Title </label>
              <input type="text" class="form-control" id="quiz-title" placeholder="Enter title">
-           </div>
          </div>
          <div class='col-xs-1 col-xs-offset-3'>
            <button type="button" class="btn btn-primary btn-lg btn-next" style="margin:30px">
@@ -26,14 +24,22 @@
          </div>
       </div>
       <div class='row'>
-         <div class="col-xs-2 col-xs-offset-2">
-           <div class="form-group">
+         <div class="col-xs-2 col-xs-offset-2 form-group">
              <label> Time </label>
                <input type="text" class="form-control" id="quiz-minutes" placeholder="Minutes">
-                 <input type="text" class="form-control" id="quiz-seconds" placeholder="Seconds">
-           </div>
+               <input type="text" class="form-control" id="quiz-seconds" placeholder="Seconds">
+         </div>
+            <div class="col-xs-6 col-xs-offset-1 form-group">
+             <label> Description </label>
+               <textarea type="text" class="form-control" id="quiz-description" placeholder="Description"></textarea>
          </div>
       </div>
+    <div class='row'>
+        <div class='col-xs-8 col-xs-offset-2 form-group'> 
+            <label> Column Headers </label>
+              <input type="text" class="form-control" id="hint-header" placeholder="Hint Header">
+               <input type="text" class="form-control" id="answer-header" placeholder="Answer Header">
+        </div>     
     </div>
   </div>
 
