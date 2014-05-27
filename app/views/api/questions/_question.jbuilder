@@ -1,1 +1,1 @@
-json.extract! question, :id, :position, :table_id, :hint, :answer, :triggers, :created_at
+json.extract! question, :id, :table_id, :hint, :answer, :triggers, :created_at

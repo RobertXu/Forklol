@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require darkly/loader
+//= require darkly/bootswatch
+//= require bootstrap
 //= require backbone-support
 //= require forklol
 //= require_tree ../templates

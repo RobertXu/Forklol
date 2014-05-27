@@ -5,9 +5,16 @@ Forklol.Router = Support.SwappingRouter.extend({
   },
 
   routes: {
+    '': 'homePage',
     'index': 'quizzesIndex',
     'quizzes/create': 'quizCreate',
     'quizzes/:id': 'quizShow'
+  },
+
+  homePage: function(){
+    var view = new Forklol.Views.HomePage();
+
+    this.swap(view);
   },
 
   quizzesIndex: function(){
@@ -41,7 +48,7 @@ Forklol.Router = Support.SwappingRouter.extend({
     }
 
     this.currentView = newView;
-    this.$el.html(this.currentView.render().el);
+    this.$el.html(this.currentView.render().el).hide().fadeIn();
 
     if (this.currentView && this.currentView.swapped) {
       this.currentView.swapped();

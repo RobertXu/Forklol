@@ -11,29 +11,57 @@ Forklol.Views.QuizQuestionForm  = Backbone.View.extend({
     'click #delete_row': 'deleteRow',
     'click .btn-submit': 'submitQuiz'
   },
-    
+
+  parseTriggers: function(str, $tr){
+    var values = str.split(",");
+    var triggers = [];
+
+    for (var i = 0; i < values.length; i++){
+      if (values[i].trim() !== ""){
+        triggers.push(values[i].trim());
+      }
+    }
+
+    triggers.push($tr.find('input[name="answer"]').val().trim());
+
+    return JSON.stringify(triggers);
+  },
+
+  parseQuestions: function(){
+    var questions={};
+    var index = 0;
+    var view = this;
+   this.$('table').find('tr').each(function(){
+       var id=$(this).attr('id');
+       var $tr = $(this);
+       var row={};
+
+       $(this).find('input').each(function(){
+         if ($(this).attr('name') === 'triggers'){
+           row[$(this).attr('name')] = view.parseTriggers($(this).val(), $tr);
+         }
+         else{
+           row[$(this).attr('name')] = $(this).val();
+         }
+       });
+
+       if (!jQuery.isEmptyObject(row)){
+           questions[index]=row;
+       }
+       index++;
+   });
+
+   return questions;
+  },
+
   submitQuiz: function(){
-     var questions={};
-    $('table').find('tr').each(function(){
-        var id=$(this).attr('id');
-        var row={};
-
-        $(this).find('input').each(function(){
-            row[$(this).attr('name')]=$(this).val();
-        });
-
-        if (!jQuery.isEmptyObject(row)){ 
-            questions[id]=row;
-        }
-    });
-      
       var quiz_table = this.model.quiz_table.attributes;
       var quiz = this.model.attributes;
       var attributes = {};
       attributes['quiz'] = quiz;
       attributes['quiz_table'] = quiz_table;
-      attributes['questions'] = questions;
-      
+      attributes['questions'] = this.parseQuestions();
+
       Forklol.quizzes.create(attributes, {
       success: function(userSession, response) {
         console.log('success');
@@ -49,14 +77,14 @@ Forklol.Views.QuizQuestionForm  = Backbone.View.extend({
          this.$('#tab_logic').append('<tr id="addr'+(this.i+1)+'"></tr>');
          this.i++;
      },
-    
+
   deleteRow: function(){
        	 if(this.i>1){
    		 this.$("#addr"+(this.i-1)).html('');
    		 this.i--;
    		 }
    	 },
-    
+
   className: 'panel panel-default',
 
   updateModel: function(event){

@@ -29,7 +29,12 @@ Forklol.GameLogic.RowUI = {
         that.$timer = $('#timer_display');
         that.$input.focus();
 
-        that.$interval = setInterval(that.updateTimer.bind(that),1000)
+        that.$interval = setInterval(that.updateTimer.bind(that),1000);
+
+        //Clear timer when the user navigates to a different page
+        $('a').one('click', function() {
+          clearInterval(that.$interval);
+        });
     });
   },
 
@@ -100,7 +105,7 @@ Forklol.GameLogic.RowUI = {
     while (question){
         var $element = this.view.$('#' + question.id);
         $element.append(question.get('answer'));
-        $element.addClass('success');
+        $element.addClass('warning');
         this.$input.val('');
 
         this.updateProgress();
@@ -122,14 +127,14 @@ Forklol.GameLogic.RowUI = {
 
     var percentage = Math.floor(fraction*100);
 
-    this.$progress.width(percentage+'%');
+    this.$progress.height(percentage+'%');
   },
 
   displayMissed : function(){
     this.remainingQ.each(function(question){
       var $el = $('#' + question.id);
       $el.html(question.get('answer'));
-      $el.addClass('warning');
+      $el.addClass('danger');
     })
   }
 }

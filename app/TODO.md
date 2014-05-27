@@ -1,8 +1,6 @@
 
 4) Make table cells clickable. Turn them into inputs and after the answer is displayed, make the inputs inactive.
 
-5) Build through association
-
 6) Add hover tooltips for quiz question builder
 
 - Clicking on user's name in nav bar should lead to profile
@@ -16,9 +14,8 @@ Future
 - Add tagging for quizzes
 - Add pause button
 - Fade in and out by overwriting swap view method
-- Allow for lower case names- Names should not be lower case in all cases. For instance, McConnell, the capital C should be important.
--Add form validation (make all fields required)
 -Make time selectable from a dropdown
+-Allow for editable quizzes
 
 
 Ongoing

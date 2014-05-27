@@ -1,5 +1,5 @@
 Forklol.Models.Quiz = Backbone.Model.extend({
-  url: 'api/quizzes',
+  urlRoot: 'api/quizzes',
   paramRoot: 'quiz',
 
   parse: function (resp) {
