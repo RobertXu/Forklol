@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Forklol_production
+  database: Forklol_development
   username: Forklol
   password: <%= ENV['FORKLOL_DATABASE_PASSWORD'] %>
