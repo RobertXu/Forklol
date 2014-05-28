@@ -13,6 +13,8 @@ Forklol.GameLogic.RowUI = {
     this.$progress = this.view.$("#progress-bar");
     this.$progressText = this.view.$('#progress-text');
     this.$playButton = this.view.$('#play_button');
+    this.$quizInput = this.view.$('#quiz-input');
+    this.$quizStart = this.view.$('#quiz-start');
   },
 
   initializeListeners: function(){
@@ -23,8 +25,9 @@ Forklol.GameLogic.RowUI = {
     });
 
     this.$playButton.on('click', function(){
-      that.$input.prop('disabled', false);
       that.$playButton.prop('disabled', true);
+      that.$quizInput.show();
+      that.$quizStart.hide();
 
         that.$timer = $('#timer_display');
         that.$input.focus();
@@ -51,8 +54,8 @@ Forklol.GameLogic.RowUI = {
       if (min === "0" && sec === "00"){
           clearInterval(this.$interval);
           this.$input.prop('disabled', true);
-          alert("Time is up");
-          this.displayMissed();
+          $timesUp = $("<div class='alert alert-danger'> Time's Up. Over Now. </div>")
+          this.$quizInput.replaceWith($timesUp);
       }
   },
 
@@ -89,9 +92,11 @@ Forklol.GameLogic.RowUI = {
       var index = question.triggers.indexOf(response);
 
       if ( index >= 0){
-        that.answeredQ.add(question);
-        that.remainingQ.remove(question);
-        actualQuestion = question;
+        if (actualQuestion === undefined){
+          that.answeredQ.add(question);
+          that.remainingQ.remove(question);
+          actualQuestion = question;
+        }
       };
 
     });
@@ -105,13 +110,14 @@ Forklol.GameLogic.RowUI = {
     while (question){
         var $element = this.view.$('#' + question.id);
         $element.append(question.get('answer'));
-        $element.addClass('warning');
+        $element.addClass('info');
         this.$input.val('');
 
         this.updateProgress();
 
         if (this.answeredQ.length === this.questions.length){
-            alert("Congrats!");
+          $gameComplete = $("<div class='alert alert-info'> Congratulations! </div>")
+          this.$quizInput.replaceWith($gameComplete);
             clearInterval(this.$interval);
             this.$input.prop('disabled', true);
         }

@@ -16,6 +16,11 @@ Future
 - Fade in and out by overwriting swap view method
 -Make time selectable from a dropdown
 -Allow for editable quizzes
+-Add give up button
+-Have result stats after game over
+-Tables text align center
+-Have quiz input bar become fixed to top
+-Add fake twitter quote on home page
 
 
 Ongoing
@@ -26,7 +31,6 @@ Ongoing
 #Quiz Builder
 
 1) Input Type: Typing Style, Click Style <<- To be added
-2) Answer Type: Text, Image
 3) Time Limit, title
 4) answer_header, hint_header
   Question 1) hint => answer

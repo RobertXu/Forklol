@@ -35,11 +35,11 @@ module Api
     def quiz_params
       params.require(:quiz).permit(:title, :description, :time_limit)
     end
-      
+
     def quiz_table_params
-        params.require(:quiz_table).permit(:hint_header, :answer_header)    
+        params.require(:quiz_table).permit(:hint_header, :answer_header)
     end
-      
+
     def question_params
           params.permit(:questions => [:hint, :answer, :triggers])
                 .require(:questions)

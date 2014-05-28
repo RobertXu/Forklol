@@ -3,6 +3,10 @@ Forklol.Models.Quiz = Backbone.Model.extend({
   paramRoot: 'quiz',
 
   parse: function (resp) {
+    if (resp.author){
+      this.author = resp.author;
+      delete resp.author;
+    }
 
     if(resp.quiz_tables){
       this.quiz_tables().set(resp.quiz_tables, {parse: true});

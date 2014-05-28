@@ -1,9 +1,18 @@
 <div class="row">
-  <h1><%= quiz.get('title') %></h1>
-  <hr class="section-heading-spacer">
+  <div class="col-xs-4">
+    <h1><%= quiz.get('title') %></h1>
+     by <%= quiz.author %>
+  </div>
+  <div class="col-xs-offset-1">
+
+  </div>
+</div>
+<div class="row">
+
 </div>
 
     <div class="row">
+   <hr class="section-heading-spacer">
       <div class="col-xs-12" style="text-align:center">
         <h3> <%= quiz.get('description') %></h3>
       </div>
@@ -12,38 +21,49 @@
 
     <hr class="section-heading-spacer">
 
-<div class="row jumbotron">
-  <div class ="row">
-    <div class="col-xs-8 col-xs-offset-2">
-        <button type='button' id="play_button" class="btn-primary btn btn-lg">Start</button>
+    <div class="row" style="height:100px;">
 
-        <label> Type Here
-          <input disabled id="submit_box"> </input>
-        </label>
+      <div class="col-xs-3" style="text-align:center">
+        <p>Completed</p>
+         <h2><div id="progress-text" style="font-size:36px; background: orange;" class = "label">0/<%= numQuestions.length %></div></h2>
 
-
-        <div id="timer_display" style="font-size: 20px; background: orange" class="label label-info"><%= quiz.get('time_limit') %></div>
-
-    </div>
-  </div>
-
-  <div class="row">
-      <div class="col-xs-2">
-        <div class="row">
-          <h2><div id="progress-text" style="background: orange" class = "label">0/<%= numQuestions.length %></div></h2>
-        </div>
-        <div class="row">
-          <div class="progress vertical progress-striped active"  style="position: relative; width:55px; height:200px;">
-          <div id="progress-bar" class="progress-bar" style="position: absolute; bottom: 0; width:100%; height:0%"></div>
-          </div>
-        </div>
       </div>
 
+      <div class="col-xs-6" style="text-align:center">
 
-    <div class="col-xs-9 col-xs-offset-1" id="quiz_tables_go_here" style="margin:10px;">
+        <div id="quiz-input" style="display:none;">
+          <div class="row">
+             <div class="formatting-div" style="width:360px; margin:5px; font-size:24px; height:30px"></div>
+          </div>
+          <div class="row">
+            <input style="width:360px; font-size:30px"id="submit_box">
+          </div>
+       </div>
+
+        <div id="quiz-start">
+          <div class="formatting-div" style="height:30px"></div>
+
+            <button type='button' id="play_button" class="btn-primary btn btn-lg btn-block">Start Game</button>
+        </div>
+
+      </div>
+
+      <div class="col-xs-3" style="text-align:center;">
+        <p>Time Remaining</p>
+          <h2>  <div id="timer_display" style="font-size:36px; background: orange" class="label label-info"><%= quiz.get('time_limit') %></div></h2>
+        </div>
+
+      </div>
+      <hr>
+
+  <div class="panel-body">
+      <div class="col-xs-10 col-xs-offset-1" id="quiz_tables_go_here">
+      </div>
     </div>
-  </div>
 
-</div>
+
+
+
+
 
 

@@ -6,6 +6,7 @@ Forklol.Router = Support.SwappingRouter.extend({
 
   routes: {
     '': 'homePage',
+    'about': 'aboutShow',
     'index': 'quizzesIndex',
     'quizzes/create': 'quizCreate',
     'quizzes/:id': 'quizShow'
@@ -13,6 +14,12 @@ Forklol.Router = Support.SwappingRouter.extend({
 
   homePage: function(){
     var view = new Forklol.Views.HomePage();
+
+    this.swap(view);
+  },
+
+  aboutShow: function(){
+    var view = new Forklol.Views.AboutShow();
 
     this.swap(view);
   },
