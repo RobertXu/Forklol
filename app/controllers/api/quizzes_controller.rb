@@ -13,9 +13,14 @@ module Api
     def create
       @quiz = current_user.quizzes.build(quiz_params)
       @table = @quiz.quiz_tables.build(quiz_table_params)
-      @table.questions.build(question_params)
+      debugger
+      @questions = @table.questions.build(question_params)
 
       if @quiz.save
+        (0..@questions.length).each do |score|
+          QuizPlay.create!({quiz_id: @quiz.id, score: score, num_plays: 0,
+                            user_id: current_user.id})
+        end
         render partial: "api/quizzes/quiz", locals: { quiz: @quiz}
       else
         render json: { errors: @quiz.errors.full_messages }, status: 422
@@ -45,7 +50,5 @@ module Api
                 .require(:questions)
                 .values
     end
-
   end
-
 end

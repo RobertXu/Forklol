@@ -1,47 +1,47 @@
   <div class="panel-heading" style="text-align:center">
-    <h2>
-      <div class="panel-title">Choose a title and time limit
-      </div>
-    </h2>
+      <h3>Tell Us About Your Quiz</h3>
   </div>
 
-  <div class="panel-body">
-    <div class='container'>
-      <div class='row'>
-        <div class='col-xs-1'>
-          <button type="button" class="btn btn-primary btn-lg btn-prev" style="margin:30px">
-            Prev
-          </button>
-        </div>
-         <div class="col-xs-4 col-xs-offset-1 form-group">
-             <label> Title </label>
-             <input type="text" class="form-control" id="quiz-title" placeholder="Enter title">
-         </div>
-         <div class='col-xs-1 col-xs-offset-3'>
-           <button type="button" class="btn btn-primary btn-lg btn-next" style="margin:30px">
-             Next
-           </button>
-         </div>
-      </div>
-      <div class='row'>
-         <div class="col-xs-2 col-xs-offset-2 form-group">
-             <label> Time </label>
-               <input type="text" class="form-control" id="quiz-minutes" placeholder="Minutes">
-               <input type="text" class="form-control" id="quiz-seconds" placeholder="Seconds">
-         </div>
-            <div class="col-xs-6 col-xs-offset-1 form-group">
-             <label> Description </label>
-               <textarea type="text" class="form-control" id="quiz-description" placeholder="Description"></textarea>
-         </div>
-      </div>
-    <div class='row'>
-        <div class='col-xs-8 col-xs-offset-2 form-group'> 
-            <label> Column Headers </label>
-              <input type="text" class="form-control" id="hint-header" placeholder="Hint Header">
-               <input type="text" class="form-control" id="answer-header" placeholder="Answer Header">
-        </div>     
+  <div class="panel-body" style="padding:0px; position:relative">
+    <div class="col-xs-1" style="height:100%; padding-left:0px; position:absolute; left:0px">
+      <button style="height:100%;" type="button" class="btn btn-primary btn-block btn-prev">
+        Prev
+      </button>
     </div>
-  </div>
+
+      <div class="col-xs-offset-1 col-xs-10" style="padding-top:20px;">
+          <div class='row'>
+             <div class="col-xs-4 form-group">
+                  <button type="button" class="btn btn-block btn-primary btn-tip" data-toggle="tooltip" data-placement="top" title="Insert clickbait here.">Title</button>
+                 <input type="text" class="form-control" id="quiz-title" placeholder="Enter title">
+             </div>
+
+            <div class="col-xs-8 form-group">
+             <button type="button" class="btn btn-block btn-primary btn-tip" data-toggle="tooltip" data-placement="top" title="Time to unload the weight that's been tying you down.">Description</button>
+               <textarea type="text" class="form-control" id="quiz-description" placeholder="Enter a Description"></textarea>
+             </div>
+          </div>
+          <div class='row'>
+             <div class="col-xs-4 form-group">
+                  <button type="button" class="btn btn-block btn-primary btn-tip" data-toggle="tooltip" data-placement="bottom" title="Will you be remembered as a cruel or kind Quizmaster?">Time</button>
+                   <input type="text" class="form-control" id="quiz-minutes" placeholder="Minutes">
+                   <input type="text" class="form-control" id="quiz-seconds" placeholder="Seconds">
+             </div>
+
+             <div class='col-xs-8 form-group'>
+                  <button type="button" class="btn btn-block btn-primary btn-tip" data-toggle="tooltip" data-placement="bottom" title="You can't build a table without heads.">Column Headers</button>
+                   <input type="text" class="form-control" id="hint-header" placeholder="Hint Header">
+                    <input type="text" class="form-control" id="answer-header" placeholder="Answer Header">
+             </div>
+          </div>
+      </div>
+
+     <div class="col-xs-1" style="height:100%; padding-right:0px; position:absolute; right:0px">
+       <button style="height:100%;" type="button" class="btn btn-primary btn-block btn-next">
+         Next
+       </button>
+     </div>
+</div>
 
 
 

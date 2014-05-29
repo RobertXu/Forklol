@@ -3,6 +3,11 @@ Forklol.Models.Quiz = Backbone.Model.extend({
   paramRoot: 'quiz',
 
   parse: function (resp) {
+    if(resp.quiz_plays){
+      this.quiz_plays().set(resp.quiz_plays, {parse: true});
+      delete resp.quiz_plays;
+    }
+
     if (resp.author){
       this.author = resp.author;
       delete resp.author;
@@ -21,5 +26,13 @@ Forklol.Models.Quiz = Backbone.Model.extend({
     }
 
     return this._quiz_tables;
+  },
+
+  quiz_plays: function(){
+    if (!this._quiz_plays){
+      this._quiz_plays = new Forklol.Collections.QuizPlays([], {quiz: this});
+    }
+
+    return this._quiz_plays;
   }
 })

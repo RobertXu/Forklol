@@ -4,4 +4,5 @@ class Quiz < ActiveRecord::Base
   has_many :quiz_tables, :class_name => "QuizTable", :foreign_key => :quiz_id
 
   has_many :questions, :through => :quiz_tables, :source => :questions
+  has_many :quiz_plays
 end

@@ -9,7 +9,7 @@ Forklol.Router = Support.SwappingRouter.extend({
     'about': 'aboutShow',
     'index': 'quizzesIndex',
     'quizzes/create': 'quizCreate',
-    'quizzes/:id': 'quizShow'
+    'quizzes/:id(/:playthrough)': 'quizShow'
   },
 
   homePage: function(){
@@ -31,12 +31,18 @@ Forklol.Router = Support.SwappingRouter.extend({
     this.swap(view);
   },
 
-  quizShow: function(id){
+  quizShow: function(id, playthrough){
     var quiz = Forklol.quizzes.getOrFetch(id);
 
     var view = new Forklol.Views.QuizShow({
       model: quiz
     });
+
+    if (!playthrough){
+      playthrough = 0;
+    }
+
+    view.playthrough = playthrough;
 
     this.swap(view);
   },

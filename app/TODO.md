@@ -8,24 +8,36 @@
 
 
 Future
-- Store times
-- Allow for custom quiz colors
-- form for making quizzes
+
+
 - Add tagging for quizzes
 - Add pause button
-- Fade in and out by overwriting swap view method
 -Make time selectable from a dropdown
--Allow for editable quizzes
 -Add give up button
 -Have result stats after game over
 -Tables text align center
--Have quiz input bar become fixed to top
+-Add tooltips for form
+-Have quiz save status during creation
+
+-On the form, allow users to press 1 or 2 to select clicking or typing:
+-quiz preview modal
+-have form accept left/right keyboard input
+-Have window auto set focus on form
+-Splash screen for quiz creation (also, create as "anonymous")
+
+
+-Make form buttons responsive
+- Store times
 -Add fake twitter quote on home page
+-Have quiz input bar become fixed to top
+-Allow for editable quizzes
+- Allow for custom quiz colors
+-Upon quiz save error, pop up a modal
+-Key up vs key down
 
 
-Ongoing
-#Better way to build divs than through a string?
-
+To reset the database: remove "validatable from the user.rb file"
+Should probably roll own auth
 
 
 #Quiz Builder

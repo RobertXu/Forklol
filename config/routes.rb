@@ -7,8 +7,10 @@ Rails.application.routes.draw do
       resources :quiz_tables, only: [:index, :show]
     end
 
+    resources :quiz_plays, only: [:update]
+
     resources :quiz_tables, only: [:update, :destroy] do
-      resources :questions, only: [:index, :show]
+      resources :questions, only: [:index, :show, :update]
     end
   end
 end

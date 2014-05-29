@@ -2,7 +2,8 @@ Forklol.Views.QuizCreate= Support.CompositeView.extend({
   initialize: function(){
     this.step = 0;
 
-    this.subViews = [Forklol.Views.QuizInputForm, Forklol.Views.QuizAnswerForm, Forklol.Views.QuizMetaForm, Forklol.Views.QuizQuestionForm];
+    // Forklol.Views.QuizAnswerForm,
+    this.subViews = [Forklol.Views.QuizInputForm, Forklol.Views.QuizMetaForm, Forklol.Views.QuizQuestionForm];
   },
 
   className: 'container',
@@ -11,12 +12,12 @@ Forklol.Views.QuizCreate= Support.CompositeView.extend({
 
   events: {
     'click .btn-next' : 'moveForward',
+    'clic .btn-submit': 'submitValidate',
     'click .btn-prev' : 'moveBack'
   },
 
   fieldsFilled: function(){
     var status = true;
-
     this.$el.find('.form-control').not('input[name="triggers"]').each(function(){
       if ($(this).val().trim() === ""){
         status = false;
@@ -24,6 +25,16 @@ Forklol.Views.QuizCreate= Support.CompositeView.extend({
     })
 
     return status;
+  },
+
+  submiteValidate: function(){
+    this.$('#panel-goes-here').find('.alert-danger').remove();
+
+    if (!this.fieldsFilled()){
+      $warning = $('<div class="alert alert-danger"> Please make each question complete before continuing </div>')
+      this.$('#panel-goes-here').prepend($warning);
+    }
+
   },
 
   moveForward: function(){
@@ -54,6 +65,8 @@ Forklol.Views.QuizCreate= Support.CompositeView.extend({
     var currentChildView = new subViewFunc({model: this.model});
 
     this.renderChildInto(currentChildView, $panel);
+
+    $('.btn-tip').tooltip();
 
     return this;
   },

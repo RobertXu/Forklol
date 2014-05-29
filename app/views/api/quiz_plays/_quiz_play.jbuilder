@@ -1,0 +1,1 @@
+json.extract! quiz_play, :id, :score, :num_plays, :user_id, :quiz_id

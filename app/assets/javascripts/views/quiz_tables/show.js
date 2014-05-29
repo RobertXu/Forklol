@@ -1,6 +1,6 @@
 Forklol.Views.QuizTableShow = Support.CompositeView.extend({
   initialize: function(){
-    this.listenTo(this.model, 'sync', this.render);
+    // this.listenTo(this.model, 'sync', this.render);
     this.id = this.model.id.toString();
   },
 

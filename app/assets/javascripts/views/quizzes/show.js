@@ -8,7 +8,7 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
   template: JST['quizzes/show'],
 
   grabQuestions: function(tableArr){
-    var questions = new Forklol.Collections.Questions();
+    var questions = new Forklol.Collections.Questions([], {});
 
     tableArr.each(function(quiz_table){
       questions.add(quiz_table.questions().models);

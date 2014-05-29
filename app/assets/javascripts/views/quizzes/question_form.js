@@ -60,10 +60,12 @@ Forklol.Views.QuizQuestionForm  = Backbone.View.extend({
       var attributes = {};
       attributes['quiz'] = quiz;
       attributes['quiz_table'] = quiz_table;
+
       attributes['questions'] = this.parseQuestions();
 
       Forklol.quizzes.create(attributes, {
-      success: function(userSession, response) {
+      success: function(response) {
+        Backbone.history.navigate('#quizzes/' + response.id, {trigger: true})
         console.log('success');
       },
       error: function(userSession, response) {

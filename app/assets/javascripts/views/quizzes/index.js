@@ -6,19 +6,34 @@ Forklol.Views.QuizzesIndex = Backbone.View.extend({
   template: JST['quizzes/index'],
 
   events: {
-    'mouseover .btn-quiz': 'panelDisplay'
+    'mouseover li': 'panelDisplay'
   },
 
   panelDisplay: function(event){
-
     this.$('.panel-heading').empty();
-    this.$('.panel-body').empty();
+    this.$('.panel-body').find('.tb-item').empty();
+    this.$('.panel').show();
 
-    var quiz_id = $(event.currentTarget).data('id');
-    var quiz = Forklol.quizzes.getOrFetch(quiz_id);
 
-    this.$('.panel-heading').append(quiz.get('title'));
-    this.$('.panel-body').append(quiz.get('description')).append(quiz.author)
+    var quiz_id = $(event.currentTarget).find('a').data('id');
+    var quiz = Forklol.quizzes.get(quiz_id);
+
+    this.$('.panel-heading').append(quiz.get('title') + '<br>by ' + quiz.author);
+    this.$('#table-desc').append(quiz.get('description'));
+    this.$('#table-time').append(quiz.get('time_limit'));
+
+    this.$('#table-questions').append(this.numQuestions(quiz));
+
+    // event.stopPropagation();
+  },
+
+  numQuestions: function(quiz){
+    var num = 0;
+    quiz.quiz_tables().each(function(table){
+      num += table.questions().length;
+    })
+
+    return num;
   },
 
   render: function () {

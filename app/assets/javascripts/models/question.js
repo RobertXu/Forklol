@@ -4,5 +4,8 @@ Forklol.Models.Question = Backbone.Model.extend({
       this.triggers = JSON.parse(response.triggers)
     }
     return response;
+  },
+  urlRoot: function(){
+    return 'api/quiz_tables/' + this.get('table_id') + '/questions';
   }
 })
