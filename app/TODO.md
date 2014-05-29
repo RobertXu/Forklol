@@ -39,11 +39,13 @@ Future
 To reset the database: remove "validatable from the user.rb file"
 Should probably roll own auth
 
+Add ability to dynamically switch between clicking and typing
 
-#Quiz Builder
+#Quiz Types
 
-1) Input Type: Typing Style, Click Style <<- To be added
-3) Time Limit, title
-4) answer_header, hint_header
-  Question 1) hint => answer
-5) Preview
+Sports
+Music
+Movies
+Television
+Gaming
+Just For Fun

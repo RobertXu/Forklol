@@ -53,7 +53,7 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
           });
           this.renderChildInto(childView, tableDivs[i]);
         }
-        Forklol.GameLogic.RowUI.initialize(this, questions);
+        Forklol.GameLogic.TypingUI.initialize(this, questions);
     }
 
     return this;

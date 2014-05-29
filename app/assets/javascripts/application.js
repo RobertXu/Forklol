@@ -19,6 +19,7 @@
 //= require bootstrap
 //= require backbone-support
 //= require forklol
+//= require game_logic/quiz_ui
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

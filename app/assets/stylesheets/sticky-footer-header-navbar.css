@@ -32,6 +32,10 @@ code {
   font-size: 80%;
 }
 
+.btn-clicking {
+  margin: 5px;
+}
+
 
 .btn-circle {
   width: 100px;
