@@ -32,6 +32,11 @@ Forklol.Router = Support.SwappingRouter.extend({
   },
 
   quizShow: function(id, playthrough){
+    if (parseInt(id) % 1 !== 0){
+    /* will handle this later*/
+        return;
+    };
+      
     var quiz = Forklol.quizzes.getOrFetch(id);
 
     var view = new Forklol.Views.QuizShow({
