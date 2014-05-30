@@ -26,7 +26,7 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
     //Make a div the size of offset to center the tables
     // var offset = Math.floor((12-occupiedSpace)/2);
     tableArr.each(function(quiz_table){
-      var $currentDiv = $("<div id='table" + quiz_table.id +"'class='col-xs-6'></div>")
+      var $currentDiv = $("<div id='table" + quiz_table.id +"'class='col-xs-12'></div>")
       $tableHolder.append($currentDiv);
       tableDivs.push($currentDiv);
     })

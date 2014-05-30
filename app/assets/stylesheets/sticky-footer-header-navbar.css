@@ -50,3 +50,13 @@ code {
 .img-responsive {
     margin: 0 auto;
 }
+
+#quiz_titles_go_here {
+ max-height: 500px;
+ overflow: auto;
+}
+
+.list-of-quizzes {
+  height:100%;
+
+}

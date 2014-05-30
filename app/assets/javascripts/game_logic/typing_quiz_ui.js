@@ -8,6 +8,15 @@ Forklol.GameLogic.TypingUI.initialize = function(view, questions){
 Forklol.GameLogic.TypingUI.initializeListeners = function(){
   that = this;
 
+  this.view.$('#give-up').on('click', function(){
+    clearInterval(that.$interval);
+    that.updateQuestions();
+    that.updateQuiz();
+    $timesUp = $("<div class='alert alert-danger'> Game Over. </div>")
+    that.updateDisplay($timesUp, that.$quizArea);
+    that.view.$('#give-up').prop('disabled', true);
+  })
+
   this.$input.on('keyup',function(event) {
       that.checkAnswer($(event.target).val());
   });
@@ -16,6 +25,7 @@ Forklol.GameLogic.TypingUI.initializeListeners = function(){
     that.$playButton.prop('disabled', true);
     that.$quizStart.hide();
     that.$quizArea.show();
+    that.view.$('#give-up').prop('disabled', false);
 
     that.$timer = $('#timer_display');
     that.$input.focus();

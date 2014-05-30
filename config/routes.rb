@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "user_sessions"}
+  devise_scope :user do
+      get 'user_sessions/login_guest' => 'user_sessions#login_guest'
+  end
+
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json} do

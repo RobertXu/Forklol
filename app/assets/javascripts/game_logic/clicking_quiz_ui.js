@@ -17,6 +17,15 @@ Forklol.GameLogic.ClickingUI.updateDisplayedHint = function(){
 Forklol.GameLogic.ClickingUI.initializeListeners = function(){
   that = this;
 
+  this.view.$('#give-up').on('click', function(){
+    clearInterval(that.$interval);
+    that.updateQuestions();
+    that.updateQuiz();
+    $timesUp = $("<div class='alert alert-danger'> Game Over. </div>")
+    that.updateDisplay($timesUp, that.$quizArea);
+    that.view.$('#give-up').prop('disabled', true);
+  })
+
   this.view.$('.btn-next-question').on('click', function(event) {
     //Check if currentQuestionIndex needs to wrap back to beginning
     that.currentQuestionIndex++;
@@ -43,6 +52,7 @@ Forklol.GameLogic.ClickingUI.initializeListeners = function(){
     that.$quizStart.hide();
     that.$quizArea.show();
     that.updateDisplayedHint();
+    that.view.$('#give-up').prop('disabled', false);
 
     that.$timer = $('#timer_display');
 

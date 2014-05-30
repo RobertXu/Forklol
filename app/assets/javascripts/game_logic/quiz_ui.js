@@ -21,18 +21,18 @@ Forklol.GameLogic.UI = {
     this.$percentileTable = this.view.$('#percentile-table');
   },
 
+  initializeListeners: function(){
+    that = this;
+  },
+
   findQuizPlay: function(score){
     var quizPlays = this.view.model.quiz_plays();
 
     var currentPlay = undefined;
-    quizPlays.each(
-      function(quizPlay)
-        {
-          if (quizPlay.get('score') === score)
-          {
+    quizPlays.each(function(quizPlay) {
+          if (quizPlay.get('score') === score) {
             currentPlay = quizPlay;
-          }
-        }
+          }}
       )
 
     return currentPlay;
@@ -86,7 +86,10 @@ Forklol.GameLogic.UI = {
 
   updateDisplay: function($endMessage, $displayBlock){
     this.updateModalResults();
+
     $displayBlock.html($endMessage);
+
+
 
     var newPlaythrough = parseInt(this.view.playthrough) + 1;
 

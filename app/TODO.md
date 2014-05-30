@@ -6,15 +6,20 @@
 
 #Priorities
 
-1) Fix login page
-2) Fix play page
+
 3) -Add give up button
-4) - Add pause button
+
+
 5) Seed data
 
 Future
 
-still need clicking ui 'else' and displayMissed
+back to the top button
+4) - Add pause button
+
+Making typing quiz, allow to switch to clicking
+
+still need displayMissed
 make meta form 4 rows
 
 Add 'false positive' alternate answers for clicking
