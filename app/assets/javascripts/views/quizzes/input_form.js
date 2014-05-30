@@ -8,11 +8,15 @@ Forklol.Views.QuizInputForm = Backbone.View.extend({
   className: 'panel panel-default',
 
   updateModel: function(event){
-    $(event.currentTarget).addClass('panel-primary').removeClass('panel-default');
+    $(event.currentTarget).addClass('panel-warning').removeClass('panel-default');
+
+    var panelHeader = $(event.currentTarget).children().first();
+
+    this.model.set({'input_type': panelHeader.text().trim()});
 
     $('.input-area').each(function(){
       if (!$(this).is($(event.currentTarget))){
-        $(this).removeClass('panel-primary').addClass('panel-default');
+        $(this).removeClass('panel-warning').addClass('panel-default');
       }
     })
   },

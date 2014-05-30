@@ -13,7 +13,6 @@ module Api
     def create
       @quiz = current_user.quizzes.build(quiz_params)
       @table = @quiz.quiz_tables.build(quiz_table_params)
-      debugger
       @questions = @table.questions.build(question_params)
 
       if @quiz.save
@@ -38,7 +37,7 @@ module Api
     private
 
     def quiz_params
-      params.require(:quiz).permit(:title, :description, :time_limit)
+      params.require(:quiz).permit(:title, :description, :time_limit, :category, :input)
     end
 
     def quiz_table_params

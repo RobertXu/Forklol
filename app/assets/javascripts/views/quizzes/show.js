@@ -48,12 +48,18 @@ Forklol.Views.QuizShow = Support.CompositeView.extend({
         var tableDivs = this.generateTableDivs(this.model.quiz_tables());
 
         for (var i = 0; i < tableDivs.length; i++){
+
           var childView = new Forklol.Views.QuizTableShow({
-            model: this.model.quiz_tables().at(i)
+            model: this.model.quiz_tables().at(i),
+            quiz: this.model
           });
           this.renderChildInto(childView, tableDivs[i]);
         }
-        Forklol.GameLogic.ClickingUI.initialize(this, questions);
+        if (this.model.get('input_type') === 'typing'){
+          Forklol.GameLogic.TypingUI.initialize(this, questions);
+        } else {
+           Forklol.GameLogic.ClickingUI.initialize(this, questions);
+        }
     }
 
     return this;

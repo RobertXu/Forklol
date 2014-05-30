@@ -2,8 +2,7 @@ Forklol.Views.QuizCreate= Support.CompositeView.extend({
   initialize: function(){
     this.step = 0;
 
-    // Forklol.Views.QuizAnswerForm,
-    this.subViews = [Forklol.Views.QuizInputForm, Forklol.Views.QuizMetaForm, Forklol.Views.QuizQuestionForm];
+    this.subViews = [Forklol.Views.QuizCategoryForm, Forklol.Views.QuizInputForm, Forklol.Views.QuizMetaForm, Forklol.Views.QuizQuestionForm];
   },
 
   className: 'container',

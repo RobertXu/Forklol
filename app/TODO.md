@@ -1,32 +1,39 @@
 
-4) Make table cells clickable. Turn them into inputs and after the answer is displayed, make the inputs inactive.
-
-6) Add hover tooltips for quiz question builder
-
-- Clicking on user's name in nav bar should lead to profile
+*- Clicking on user's name in nav bar should lead to profile
     have dropdown for user name as well?
+    *
 
+
+#Priorities
+
+1) Fix login page
+2) Fix play page
+3) -Add give up button
+4) - Add pause button
+5) Seed data
 
 Future
 
+still need clicking ui 'else' and displayMissed
+make meta form 4 rows
 
-- Add tagging for quizzes
-- Add pause button
+Add 'false positive' alternate answers for clicking
+
+Fill front page with round circles of the six categories
+
+No sporks allowed.
+
+
 -Make time selectable from a dropdown
--Add give up button
--Have result stats after game over
+
 -Tables text align center
 -Add tooltips for form
 -Have quiz save status during creation
 
 -Show hint header and answer header for clicking quizzes
 
--On the form, allow users to press 1 or 2 to select clicking or typing:
 -quiz preview modal
--have form accept left/right keyboard input
--Have window auto set focus on form
 -Splash screen for quiz creation (also, create as "anonymous")
-
 
 -Make form buttons responsive
 - Store times
@@ -35,6 +42,10 @@ Future
 -Allow for editable quizzes
 - Allow for custom quiz colors
 -Upon quiz save error, pop up a modal
+
+#Form Validation
+
+  detach btn-next event from "create", place it in the subviews instead for custom logic
 
 - Fix button size
 

@@ -82,10 +82,12 @@ Forklol.GameLogic.ClickingUI.checkAnswer = function(answer){
       this.updateDisplayedHint();
     }
   } else{
-    /*
-    Game Over
-    Explode
-    */
+    clearInterval(this.$interval);
+    this.updateQuestions();
+    this.updateQuiz();
+    this.displayMissed();
+    $timesUp = $("<div class='alert alert-danger'> Game Over. </div>")
+    this.updateDisplay($timesUp, this.$quizArea);
   }
 };
 

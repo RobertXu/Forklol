@@ -1,4 +1,4 @@
-json.extract! quiz, :title, :id, :author_id, :description, :time_limit, :created_at, :updated_at
+json.extract! quiz, :title, :id, :author_id, :description, :time_limit, :created_at, :updated_at, :input_type, :category
 
 json.quiz_tables quiz.quiz_tables, partial: 'api/quiz_tables/quiz_table', as: :quiz_table
 
