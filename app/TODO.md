@@ -19,6 +19,8 @@ Future
 -Add tooltips for form
 -Have quiz save status during creation
 
+-Show hint header and answer header for clicking quizzes
+
 -On the form, allow users to press 1 or 2 to select clicking or typing:
 -quiz preview modal
 -have form accept left/right keyboard input
@@ -33,7 +35,8 @@ Future
 -Allow for editable quizzes
 - Allow for custom quiz colors
 -Upon quiz save error, pop up a modal
--Key up vs key down
+
+- Fix button size
 
 
 To reset the database: remove "validatable from the user.rb file"

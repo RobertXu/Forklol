@@ -5,18 +5,19 @@ Forklol.GameLogic.ClickingUI = Object.create(Forklol.GameLogic.UI);
 Forklol.GameLogic.ClickingUI.initialize = function(view, questions){
   Forklol.GameLogic.UI.initialize.call(this, view, questions);
   this.currentQuestionIndex = 0;
+  this.$quizArea = this.$quizClicking;
 };
 
 Forklol.GameLogic.ClickingUI.updateDisplayedHint = function(){
   var currentQuestion = this.remainingQ.at(this.currentQuestionIndex);
 
-  this.$clickingHint.html(currentQuestion.get('hint'));
+  this.$questionHint.html(currentQuestion.get('hint'));
 };
 
 Forklol.GameLogic.ClickingUI.initializeListeners = function(){
   that = this;
 
-  this.view.find('.btn-next-question').on('click', function(event) {
+  this.view.$('.btn-next-question').on('click', function(event) {
     //Check if currentQuestionIndex needs to wrap back to beginning
     that.currentQuestionIndex++;
     that.currentQuestionIndex = that.currentQuestionIndex % (that.remainingQ.length)
@@ -24,7 +25,7 @@ Forklol.GameLogic.ClickingUI.initializeListeners = function(){
     that.updateDisplayedHint();
   });
 
-  this.view.find('.btn-prev-question').on('click', function(event) {
+  this.view.$('.btn-prev-question').on('click', function(event) {
     //Check if currentQuestionsIndex needs to wrap to the end
     that.currentQuestionIndex--;
     that.currentQuestionIndex = (that.currentQuestionIndex + that.remainingQ.length) % (that.remainingQ.length);
@@ -32,14 +33,15 @@ Forklol.GameLogic.ClickingUI.initializeListeners = function(){
     that.updateDisplayedHint();
   });
 
-  this.view.find('.btn-clicking').on('click', function(event) {
+  this.view.$('.btn-clicking').on('click', function(event) {
       that.checkAnswer($(event.target).html().trim());
+      $(event.currentTarget).prop('disabled', true);
   });
 
   this.$playButton.on('click', function(){
     that.$playButton.prop('disabled', true);
     that.$quizStart.hide();
-    // that.$quizCurrentQuestion.show();
+    that.$quizArea.show();
     that.updateDisplayedHint();
 
     that.$timer = $('#timer_display');
@@ -53,12 +55,16 @@ Forklol.GameLogic.ClickingUI.initializeListeners = function(){
   });
 };
 
+Forklol.GameLogic.ClickingUI.displayMissed = function(){
+
+};
+
 Forklol.GameLogic.ClickingUI.checkAnswer = function(answer){
   var currentQuestion = this.remainingQ.at(this.currentQuestionIndex);
 
   if (currentQuestion.get('answer') === answer){
-    this.answeredQ.add(question);
-    this.remainingQ.remove(question);
+    this.answeredQ.add(currentQuestion);
+    this.remainingQ.remove(currentQuestion);
 
     this.updateProgress();
 
@@ -67,11 +73,13 @@ Forklol.GameLogic.ClickingUI.checkAnswer = function(answer){
       this.updateQuestions();
       this.updateQuiz();
       $gameComplete = $("<div class='alert alert-info'> Congratulations! </div>")
-      this.updateDisplay($gameComplete);
-    }
+      this.updateDisplay($gameComplete, this.$quizArea);
+    } else{
+      if (this.currentQuestionIndex === this.remainingQ.length){
+        this.currentQuestionIndex = 0;
+      }
 
-    if (this.currentQuestionIndex === this.remainingQ.length){
-      this.currentQuestionIndex = 0;
+      this.updateDisplayedHint();
     }
   } else{
     /*
@@ -82,18 +90,16 @@ Forklol.GameLogic.ClickingUI.checkAnswer = function(answer){
 };
 
 Forklol.GameLogic.displayMissed = function(){
-
+  this.view.$('.btn-click').prop('disabled', true);
 };
+
+
 
 /*
 Consideration
-  if they guess correctly, then don't update question index, just grab new question.
-  if they press prev or next, update index and then grab new question
-
   Game Flow
 
 -Click Play
--Start the timer
 -Replace play with div that contains current hint
 -Update the current question instance variable of row logic
 -Wait for "next"  or "prev" button getting clicked

@@ -15,7 +15,7 @@ Forklol.GameLogic.UI = {
     this.$playButton = this.view.$('#play_button');
     this.$quizTyping = this.view.$('#quiz-typing');
     this.$quizClicking = this.view.$('#quiz-clicking');
-    this.$clickingHint = this.view.$('#clicking-hint');
+    this.$questionHint = this.view.$('#question-hint');
     this.$quizStart = this.view.$('#quiz-start');
     this.$questionsTable = this.view.$('#questions-table');
     this.$percentileTable = this.view.$('#percentile-table');
@@ -80,7 +80,7 @@ Forklol.GameLogic.UI = {
           this.updateQuiz();
           this.displayMissed();
           $timesUp = $("<div class='alert alert-danger'> Time's Up. Over Now. </div>")
-          this.updateDisplay($timesUp, this.$quizTyping);
+          this.updateDisplay($timesUp, this.$quizArea);
       }
   },
 

@@ -2,6 +2,7 @@ Forklol.GameLogic.TypingUI = Object.create(Forklol.GameLogic.UI);
 
 Forklol.GameLogic.TypingUI.initialize = function(view, questions){
   Forklol.GameLogic.UI.initialize.call(this, view, questions);
+  this.$quizArea = this.$quizTyping;
 };
 
 Forklol.GameLogic.TypingUI.initializeListeners = function(){
@@ -14,7 +15,7 @@ Forklol.GameLogic.TypingUI.initializeListeners = function(){
   this.$playButton.on('click', function(){
     that.$playButton.prop('disabled', true);
     that.$quizStart.hide();
-    that.$quizTyping.show();
+    that.$quizArea.show();
 
     that.$timer = $('#timer_display');
     that.$input.focus();
@@ -34,7 +35,7 @@ Forklol.GameLogic.TypingUI.displayMissed = function(){
       $el.html(question.get('answer'));
       $el.addClass('danger');
     })
-  }
+  };
 
 Forklol.GameLogic.TypingUI.findQuestion = function(response){
   var that = this;
@@ -73,9 +74,11 @@ Forklol.GameLogic.TypingUI.checkAnswer = function(response){
         this.updateQuestions();
         this.updateQuiz();
         $gameComplete = $("<div class='alert alert-info'> Congratulations! </div>")
-        this.updateDisplay($gameComplete, this.$quizTyping);
+        this.updateDisplay($gameComplete, this.$quizArea);
       }
 
       question = this.findQuestion(response)
   }
 };
+
+
