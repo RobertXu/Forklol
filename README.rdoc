@@ -11,3 +11,4 @@ Forklol utilizes a Rails backend, which serves data to a Backbone.js frontend.
 * Create two kinds of quizzes, with clicking and typing input.
 * View results after each quiz. See how you performed on the quiz when compared to others and the relative difficulty of each question.
 * Login as a guest user to get quickly started.
+* All content pages are part of a single page app. Usage of composite views to render subviews and safely attach and detach event handlers.
