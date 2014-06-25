@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is Forklol?
 
-Things you may want to cover:
+Forklol is a trivia website inspired by Sporcle.com. Users can create quizzes and share them with friends.
 
-* Ruby version
+Forklol utilizes a Rails backend, which serves data to a Backbone.js frontend. 
 
-* System dependencies
+## Site Features
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Create two kinds of quizzes, with clicking and typing input.
+* View results after each quiz. See how you performed on the quiz when compared to others and the relative difficulty of each question.
+* Login as a guest user to get quickly started.
