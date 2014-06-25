@@ -1,12 +1,12 @@
 == README
 
-## What is Forklol?
+=== What is Forklol?
 
 Forklol is a trivia website inspired by Sporcle.com. Users can create quizzes and share them with friends.
 
 Forklol utilizes a Rails backend, which serves data to a Backbone.js frontend. 
 
-## Site Features
+=== Site Features
 
 * Create two kinds of quizzes, with clicking and typing input.
 * View results after each quiz. See how you performed on the quiz when compared to others and the relative difficulty of each question.
