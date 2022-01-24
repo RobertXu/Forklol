@@ -54,6 +54,8 @@ Forklol.GameLogic.TypingUI.findQuestion = function(response){
 
   this.remainingQ.each(function(question){
     if (!question.trigggers) {
+	    console.log(question.triggers);
+	    console.log(question.attributes.answer);
     console.log("no triggers found for question");
     }
 	  
