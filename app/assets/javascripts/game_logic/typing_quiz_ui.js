@@ -53,13 +53,8 @@ Forklol.GameLogic.TypingUI.findQuestion = function(response){
   var actualQuestion = undefined;
 
   this.remainingQ.each(function(question){
-    if (!question.trigggers) {
-	    console.log(question.triggers);
-	    console.log(question.attributes.answer);
-    console.log("no triggers found for question");
-    }
 	  
-   var triggers = question.triggers || [];	  
+   var triggers = (question && question.triggers) || [];	  
 	  
     var index = triggers.indexOf(response);
 
