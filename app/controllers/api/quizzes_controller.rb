@@ -11,6 +11,8 @@ module Api
     end
 
     def create
+      logger = Logger.new(STDOUT)
+
       @quiz = current_user.quizzes.build(quiz_params)
       @table = @quiz.quiz_tables.build(quiz_table_params)
       @questions = @table.questions.build(question_params)
@@ -22,6 +24,10 @@ module Api
         end
         render partial: "api/quizzes/quiz", locals: { quiz: @quiz}
       else
+
+        logger.error(@quiz.errors)
+        logger.error(@table.errors)
+        logger.error(@questions)
         render json: { errors: @quiz.errors }, status: 422
       end
     end
