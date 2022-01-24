@@ -17,6 +17,11 @@ module Api
       @table = @quiz.quiz_tables.build(quiz_table_params)
       @questions = @table.questions.build(question_params)
 
+      @good_questions = Question.create(question_params)
+
+      @questions.save
+      logger.error(@good_questions)
+
       if @quiz.save
         (0..@questions.length).each do |score|
           QuizPlay.create!({quiz_id: @quiz.id, score: score, num_plays: 0,
