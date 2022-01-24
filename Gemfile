@@ -54,7 +54,7 @@ gem 'jquery-ui-rails'
 gem 'twitter-bootswatch-rails-fontawesome'
 gem 'twitter-bootswatch-rails'
 
-$gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 
 gem 'therubyrhino'
 
