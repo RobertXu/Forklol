@@ -22,7 +22,7 @@ module Api
         end
         render partial: "api/quizzes/quiz", locals: { quiz: @quiz}
       else
-        render json: { errors: @quiz.errors.full_messages }, status: 422
+        render json: { errors: @table.errors.full_messages }, status: 422
       end
     end
 
