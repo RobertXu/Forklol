@@ -55,7 +55,7 @@ gem 'twitter-bootswatch-rails-fontawesome'
 gem 'twitter-bootswatch-rails'
 
 
-#gem 'therubyracer'
+gem 'therubyrhino'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
