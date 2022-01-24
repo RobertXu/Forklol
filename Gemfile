@@ -7,7 +7,11 @@ gem 'rails', '= 5.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'sprockets-rails', '= 2.3.3'
+
 gem 'railties'
+
+gem 'ejs'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -41,6 +45,8 @@ gem 'rails_12factor', group: :production
 
 # Authentication
 gem 'devise'
+
+gem 'bootswatch'
 
 # Composite Views and Cleaning up Zombie views
 gem 'backbone-support'

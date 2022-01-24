@@ -14,9 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require darkly/loader
-//= require darkly/bootswatch
-//= require twiter/bootstrap
+//= require bootstrap
 //= require backbone-support
 //= require forklol
 //= require game_logic/quiz_ui
