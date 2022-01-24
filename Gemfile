@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-ruby "2.6.9"
+ruby "2.7.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '= 6.1.0'
+gem 'rails', '= 5.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
 gem 'railties'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '= 5.1.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring'
+
+gem 'listen'
+
+gem 'require'
 
 # Keeping my keys safe
 gem 'figaro'
