@@ -1,6 +1,9 @@
 Forklol.Views.QuizInputForm = Backbone.View.extend({
   template: JST['quizzes/input_form'],
 
+  initialize: function(options) {
+        this.options = options;
+    },
   events: {
     'click .input-area': 'updateModel'
   },

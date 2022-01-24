@@ -1,5 +1,8 @@
 Forklol.Views.QuizCategoryForm  = Backbone.View.extend({
   template: JST['quizzes/category_form'],
+  initialize: function(options) {
+        this.options = options;
+    },
 
   events: {
     'click .btn-cat': 'updateCategory'

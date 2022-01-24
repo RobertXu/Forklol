@@ -1,5 +1,6 @@
 Forklol.Views.QuestionShow = Backbone.View.extend({
   initialize: function(options){
+    this.options = options;
     this.model = options.model;
 
     if (options.button){

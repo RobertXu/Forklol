@@ -1,6 +1,10 @@
 Forklol.Views.AboutShow = Backbone.View.extend({
-  template: JST['about_show'],
-
+  template: JST['about_show'],	
+ 
+  initialize: function(options) {
+        this.options = options;
+    },
+  
   render: function(){
     var content = this.template();
 

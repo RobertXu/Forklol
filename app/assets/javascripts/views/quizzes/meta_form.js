@@ -2,6 +2,10 @@ Forklol.Views.QuizMetaForm = Backbone.View.extend({
   template: JST['quizzes/meta_form'],
 
   className: 'panel panel-default',
+  initialize: function(options) {
+        this.options = options;
+    },
+	
 
   events: {
     'keydown #quiz-title': 'updateTitle',

@@ -3,6 +3,7 @@ Forklol.Views.QuizTableShow = Support.CompositeView.extend({
     // this.listenTo(this.model, 'sync', this.render);
     this.id = this.model.id.toString();
     this.quiz = options.quiz;
+    this.options = options;	  
 
     if (this.quiz.get('input_type') === 'typing'){
       this.template = JST['quiz_tables/show_typing'];
