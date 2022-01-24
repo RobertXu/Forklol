@@ -51,12 +51,12 @@ gem 'annotate'
 
 gem 'jquery-ui-rails'
 
-gem 'twitter-bootswatch-rails-fontawesome'
-gem 'twitter-bootswatch-rails'
+#gem 'twitter-bootswatch-rails-fontawesome'
+#gem 'twitter-bootswatch-rails'
 
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 
-gem 'therubyrhino'
+#gem 'therubyrhino'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
