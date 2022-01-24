@@ -16,7 +16,7 @@
 //= require backbone
 //= require darkly/loader
 //= require darkly/bootswatch
-//= require bootstrap
+//= require twiter/bootstrap
 //= require backbone-support
 //= require forklol
 //= require game_logic/quiz_ui
