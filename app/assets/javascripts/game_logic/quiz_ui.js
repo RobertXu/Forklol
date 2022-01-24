@@ -121,7 +121,7 @@ Forklol.GameLogic.UI = {
     for (var i = 0; i < quiz_plays.length; i += step){
       var playsInInterval = 0;
 
-      for (var j = i; j < i+step; j++){
+      for (var j = i; j < Math.min(quiz_plays.length, i+step); j++){
         playsInInterval += quiz_plays.at(j).get('num_plays')
       }
       totalSoFar += playsInInterval;
